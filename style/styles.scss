@@ -1,0 +1,103 @@
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --primay-color: #474340;
+    --box-color: #f1f0f0;
+}
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+
+.title {
+    background-color: var(--primay-color);
+    color: #ffffff;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 1rem;
+}
+
+.new-book {
+    background-color: var(--box-color);
+    box-shadow: 0 .063rem .125rem 0 rgba(0,0,0,.3);
+    text-align: left;
+    font-size: 1.5rem;
+    position: relative;
+}
+
+.form {
+    background-color: var(--box-color);
+    width: 30%;
+    margin: auto;
+    position: relative;
+    display: none;
+    box-shadow: 0 .063rem .125rem 0 rgba(0,0,0,.3);
+    form {
+        margin: 1rem;
+        margin-bottom: 0;
+        padding: 1rem;
+        padding-bottom: 0;
+       input {
+           padding: 6px;
+           margin: 6px;
+           box-shadow: none;
+           border: none;
+           border-bottom: var(--primay-color) 3px solid;
+           background-color: var(--box-color);
+           color: black;
+           }
+       }
+       label {
+        padding: 6px;
+        margin: 6px;
+       }
+    }
+
+
+.btn {
+    background-color: rgba(0,0,0,.1);
+    font-size: 16px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.addbook {
+    color: white;
+}
+
+.fa-times {
+    position: absolute;
+    right: 0;
+    padding: 3px;
+    margin: 3px;
+    cursor: pointer;
+
+}
+
+.deletebtn, .have-read {
+    position: absolute;
+    cursor: pointer;
+    padding: 5px;
+    margin: 5px;
+}
+
+.deletebtn {
+    bottom: 0;
+    right: 0;
+
+}
+
+.have-read {
+    bottom: 0;
+    right: 30px;
+}
