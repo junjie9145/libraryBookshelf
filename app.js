@@ -1,9 +1,6 @@
-const newBook = document.querySelector('.submit');
-const bookTitle = document.getElementById('title');
-const bookAuthor = document.getElementById("author");
-const page = document.getElementById('page');
+
 const container = document.querySelector('.container');
-const readStatus = document.getElementById("status");
+
 
 //constructor
 class Bookshelf {
@@ -27,9 +24,6 @@ class Bookshelf {
         this.books = this.books.filter(book => book.title !== bookTitle);
     }
 
-    // findTitle(bookTitle) {
-    //     if(this.books.some((book) => book.title !== bookTitle)) return true;
-    // }
 }
 
 class Book {
@@ -55,21 +49,26 @@ const myLibrary = new Bookshelf();
 restoreFromLocal();
 
 function addBook () {
+    const bookTitle = document.getElementById('title');
+    const bookAuthor = document.getElementById("author");
+    const page = document.getElementById('page');
+    const readStatus = document.getElementById("status");
     if (bookTitle.value === "" || bookAuthor.value ==="" || page.value === "" ) {
         alert("Fill out form");
         return;
+    } else {
+        myLibrary.add(new Book(bookTitle.value, bookAuthor.value, page.value, readStatus.value))
+        saveToLocal();
+        let bookIndex = myLibrary.get(myLibrary.numberOfBooks() - 1 );
+        makeCard(bookIndex);
     }
-    myLibrary.add(new Book(bookTitle.value, bookAuthor.value, page.value, readStatus.value))
-    saveToLocal();
-    console.log(localStorage);
-    let bookIndex = myLibrary.get(myLibrary.numberOfBooks() - 1 );
-    makeCard(bookIndex);
     bookTitle.value = '';
     bookAuthor.value = '';
     page.value= '';
     }
 
 
+const newBook = document.querySelector('.submit');
 newBook.addEventListener("click", addBook);
 
 //create book card
